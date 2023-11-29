@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,8 +14,8 @@ import java.util.Set;
 
 public class UniqueWordsCounter {
     public static void main(String[] args) {
-        String inputFile = "C:/Users/admin/Desktop/input.txt";
-        String outputFile = "output.txt";
+        String inputFile = "C:\\Users\\admin\\solvd_test_auto_mvn\\src\\main\\java\\com\\solvd\\course\\hm\\project\\it\\utils\\input.txt";
+        String outputFile = "C:\\Users\\admin\\solvd_test_auto_mvn\\src\\main\\java\\com\\solvd\\course\\hm\\project\\it\\utils\\output.txt";
 
         List<String> lines;
         try {
@@ -28,13 +29,10 @@ public class UniqueWordsCounter {
         for (String line : lines) {
             String[] words = StringUtils.split(line);
             if (words != null) {
-                for (String word : words) {
-                    uniqueWords.add(word);
-                }
+                uniqueWords.addAll(Arrays.asList(words));
             }
         }
 
-        // Write the result to the output file
         try {
             FileUtils.writeLines(new File(outputFile), uniqueWords);
         } catch (IOException e) {

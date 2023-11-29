@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0220dce4-2c0e-4252-bb8a-febbc0b3bf81" name="Changes" comment="wersja poprawiona">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/utils/UniqueWordsCounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/utils/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/AutomotiveSoftwareTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/AutomotiveSoftwareTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/SoftwareDeveloper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/SoftwareDeveloper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Technologies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Technologies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/utils/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/utils/UniqueWordsCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/utils/UniqueWordsCounter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,10 +91,35 @@
       <option name="project" value="LOCAL" />
       <updated>1700515436449</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="wersja poprawiona">
+      <option name="closed" value="true" />
+      <created>1701268361999</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701268361999</updated>
+    </task>
+    <task id="LOCAL-00003" summary="wersja poprawiona">
+      <option name="closed" value="true" />
+      <created>1701268437109</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701268437109</updated>
+    </task>
+    <task id="LOCAL-00004" summary="wersja poprawiona">
+      <option name="closed" value="true" />
+      <created>1701268476804</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701268476804</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
     <MESSAGE value="wersja poprawiona" />
     <option name="LAST_COMMIT_MESSAGE" value="wersja poprawiona" />
   </component>
