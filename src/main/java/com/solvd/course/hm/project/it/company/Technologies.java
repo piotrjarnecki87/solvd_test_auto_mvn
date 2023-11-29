@@ -14,3 +14,5 @@ public enum Technologies {
         return description;
     }
 }
+//wprowadz konstruktor i rozszerz zakres
+//static block

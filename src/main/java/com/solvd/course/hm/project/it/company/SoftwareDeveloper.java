@@ -7,26 +7,17 @@ import java.util.Objects;
 
 public class SoftwareDeveloper extends Employee implements Developer {
 
-    private ProjectA projectA;
-
     public SoftwareDeveloper(String name, int employeeId, ProjectA projectA) {
-        super(name, employeeId);
-        this.projectA = projectA;
+        super(name, employeeId, projectA);
 
     }
-
-    @Override
-    public ProjectA getProjectA() {
-        return projectA;
-    }
-
     @Override
     public void writeCode() throws InvalidTechnologiesException {
-        if (!isValidTechnology(projectA.getTechnologies())) {
-            throw new InvalidTechnologiesException("Invalid technology for writing code: " + projectA.getTechnologies());
+        if (!isValidTechnology(getProjectA().getTechnologies())) {
+            throw new InvalidTechnologiesException("Invalid technology for writing code: " + getProjectA().getTechnologies());
         }
 
-        System.out.println(getName() + " - Software Developer is writing code in " + projectA.getTechnologies());
+        System.out.println(getName() + " - Software Developer is writing code in " + getProjectA().getTechnologies());
     }
     private boolean isValidTechnology(Technologies technology) {
         return TechnologyValidator.isValidTechnology(technology);
@@ -37,18 +28,18 @@ public class SoftwareDeveloper extends Employee implements Developer {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         SoftwareDeveloper that = (SoftwareDeveloper) o;
-        return Objects.equals(projectA, that.projectA);
+        return Objects.equals(getProjectA(), that.getProjectA());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), projectA);
+        return Objects.hash(super.hashCode(), getProjectA());
     }
 
     @Override
     public String toString() {
         return getName() +
-                " ,projectA=" + projectA +
+                " ,projectA=" + getProjectA() +
                 '}';
     }
 }

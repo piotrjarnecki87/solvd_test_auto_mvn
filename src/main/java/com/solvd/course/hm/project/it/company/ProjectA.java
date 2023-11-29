@@ -8,8 +8,9 @@ public class ProjectA {
     private Technologies technologies;
 
     private static Set<ProjectA> projectSet = new HashSet<>();
-    public static Set<ProjectA> getProjectSet() {
-        return projectSet;
+    public ProjectA(String projectName, Technologies technologies) {
+        this.projectName = projectName;
+        this.technologies = technologies;
     }
 
     public String getProjectName() {
@@ -20,11 +21,10 @@ public class ProjectA {
         return technologies;
     }
 
-
-    public ProjectA(String projectName, Technologies technologies) {
-        this.projectName = projectName;
-        this.technologies = technologies;
+    public static Set<ProjectA> getProjectSet() {
+        return projectSet;
     }
+
 
     @Override
     public String toString() {

@@ -4,60 +4,83 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0220dce4-2c0e-4252-bb8a-febbc0b3bf81" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/Select001.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/AutomotiveSoftwareTester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/CEO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/CustomLinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/SoftwareDeveloper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Technologies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/TechnologyValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/exceptions/InvalidNameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/exceptions/InvalidTeamManagementException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/exceptions/InvalidTechnologiesException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/exceptions/TestExecutionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/exceptions/UnauthorizedAccessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/exceptions/log/ExceptionLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/interfaces/CEOActions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/interfaces/Developer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/interfaces/ManagerActions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/interfaces/TeamMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/interfaces/Tester.java" afterDir="false" />
+    <list default="true" id="0220dce4-2c0e-4252-bb8a-febbc0b3bf81" name="Changes" comment="wersja poprawiona">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/utils/UniqueWordsCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/AutomotiveSoftwareTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/AutomotiveSoftwareTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ProjectManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/SoftwareDeveloper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/SoftwareDeveloper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Technologies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Technologies.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2YSMVm0RfYAdb38FwFDe4rHZrBW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Application.UniqueWordsCounter">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.project.it.company.Main" />
+      <module name="solvd_test_auto_mvn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.course.hm.project.it.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UniqueWordsCounter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.project.it.utils.UniqueWordsCounter" />
+      <module name="solvd_test_auto_mvn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.course.hm.project.it.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UniqueWordsCounter" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,6 +90,19 @@
       <option name="presentableId" value="Default" />
       <updated>1700514555555</updated>
     </task>
+    <task id="LOCAL-00001" summary="wersja poprawiona">
+      <option name="closed" value="true" />
+      <created>1700515436449</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700515436449</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="wersja poprawiona" />
+    <option name="LAST_COMMIT_MESSAGE" value="wersja poprawiona" />
   </component>
 </project>

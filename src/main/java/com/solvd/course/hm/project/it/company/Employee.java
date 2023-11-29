@@ -7,7 +7,7 @@ abstract class Employee extends Person implements TeamMember {
     private int employeeId;
     private ProjectA projectA;
 
-    public Employee(String name, int employeeId) {
+    public Employee(String name, int employeeId, ProjectA projectA) {
         super(name);
         this.employeeId = employeeId;
         this.projectA = projectA;
@@ -16,6 +16,7 @@ abstract class Employee extends Person implements TeamMember {
     public int getEmployeeId() {
         return employeeId;
     }
+
 
     @Override
     public void workOnProject() {
@@ -35,5 +36,11 @@ abstract class Employee extends Person implements TeamMember {
         return Objects.hash(employeeId, projectA);
     }
 
-    public abstract ProjectA getProjectA();
+    public ProjectA getProjectA() {
+        return projectA;
+    }
+
+    public void setProjectA(ProjectA projectA) {
+        this.projectA = projectA;
+    }
 }

@@ -5,22 +5,15 @@ import com.solvd.course.hm.project.it.company.interfaces.ManagerActions;
 import java.util.Objects;
 
 public class ProjectManager extends Manager implements ManagerActions {
-    private ProjectA projectA;
+
 
     public ProjectManager(String name, int employeeId,String department, ProjectA projectA) {
-        super(name, employeeId, department);
-        this.projectA = projectA;
-
+        super(name, employeeId, department, projectA);
     }
 
     @Override
     public void workOnProject() {
         System.out.println(getName() + " is managing the project scope.");
-    }
-
-    @Override
-    public ProjectA getProjectA() {
-        return projectA;
     }
 
     @Override
@@ -39,19 +32,19 @@ public class ProjectManager extends Manager implements ManagerActions {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ProjectManager that = (ProjectManager) o;
-        return Objects.equals(projectA, that.projectA);
+        return Objects.equals(super.getProjectA(), that.getProjectA());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), projectA);
+        return Objects.hash(super.hashCode(), super.getProjectA());
     }
 
     @Override
     public String toString() {
         return getName()+
                 " - ProjectManager{" +
-                "projectA=" + projectA +
+                "projectA=" + super.getProjectA() +
                 '}';
     }
 }

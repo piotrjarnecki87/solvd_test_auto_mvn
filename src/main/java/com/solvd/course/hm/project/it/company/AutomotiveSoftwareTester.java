@@ -6,11 +6,9 @@ import java.util.Objects;
 
 public class AutomotiveSoftwareTester extends Employee implements Tester {
 
-    private ProjectA projectA;
 
     public AutomotiveSoftwareTester(String name, int employeeId, ProjectA projectA) {
-        super(name, employeeId);
-        this.projectA = projectA;
+        super(name, employeeId, projectA);
     }
 
     @Override
@@ -45,22 +43,17 @@ public class AutomotiveSoftwareTester extends Employee implements Tester {
     }
 
     @Override
-    public ProjectA getProjectA() {
-        return projectA;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         AutomotiveSoftwareTester that = (AutomotiveSoftwareTester) o;
-        return Objects.equals(projectA, that.projectA);
+        return Objects.equals(super.getProjectA(), that.getProjectA());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), projectA);
+        return Objects.hash(super.hashCode(), super.getProjectA());
     }
 
     @Override
@@ -68,7 +61,7 @@ public class AutomotiveSoftwareTester extends Employee implements Tester {
         return "AutomotiveSoftwareTester{" +
                 "name='" + getName() + '\'' +
                 ", employeeId=" + getEmployeeId() +
-                ", projectA='" + projectA + '\'' +
+                ", projectA='" + super.getProjectA() + '\'' +
                 '}';
     }
 }

@@ -6,9 +6,8 @@ import com.solvd.course.hm.project.it.company.exceptions.log.ExceptionLogger;
 abstract class Manager extends Employee {
     private String department;
 
-
-    public Manager(String name, int employeeId, String department) {
-        super(name, employeeId);
+    public Manager(String name, int employeeId, String department, ProjectA projectA) {
+            super(name, employeeId, projectA);
         this.department = department;
 
     }
@@ -28,16 +27,14 @@ abstract class Manager extends Employee {
                 ExceptionLogger.logExceptionToFile(new InvalidTeamManagementException(errorMessage));
                 throw new InvalidTeamManagementException(errorMessage);
             }
-        } catch (Exception e) {
-
+        } catch (InvalidTeamManagementException e) {
             ExceptionLogger.logExceptionToFile(e);
-            System.err.println("Exception during team management: " + e.getMessage());
+            System.err.println("Invalid team management: " + e.getMessage());
         }
     }
 
     private boolean isTeamManagementProblem() {
         return getTeamSize() < 3;
     }
-
     protected abstract int getTeamSize();
 }
