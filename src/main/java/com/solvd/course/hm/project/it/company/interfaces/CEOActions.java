@@ -1,5 +1,6 @@
 package com.solvd.course.hm.project.it.company.interfaces;
 
-public interface CEOActions {
-    void defineCompanyStrategy();
+@FunctionalInterface
+public interface CEOActions<T> {
+    void defineCompanyStrategy(T strategy);
 }

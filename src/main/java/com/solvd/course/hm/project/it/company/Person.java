@@ -1,13 +1,18 @@
 package com.solvd.course.hm.project.it.company;
 
+import com.solvd.course.hm.project.it.company.enums.OrganisationRole;
 import com.solvd.course.hm.project.it.company.exceptions.InvalidNameException;
 
 public class Person {
     private String name;
+    private OrganisationRole organisationRole ;
 
-    public Person(String name) throws InvalidNameException {
+    public Person(String name, OrganisationRole organisationRole) throws InvalidNameException {
         validateName(name);
         this.name = name;
+        this.organisationRole = organisationRole;
+
+
     }
 
     public String getName() {

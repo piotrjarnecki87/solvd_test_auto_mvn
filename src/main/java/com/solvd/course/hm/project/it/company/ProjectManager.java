@@ -1,14 +1,16 @@
 package com.solvd.course.hm.project.it.company;
 
+import com.solvd.course.hm.project.it.company.enums.CompanyDepartment;
+import com.solvd.course.hm.project.it.company.enums.OrganisationRole;
 import com.solvd.course.hm.project.it.company.interfaces.ManagerActions;
 
 import java.util.Objects;
 
-public class ProjectManager extends Manager implements ManagerActions {
+public class ProjectManager extends Manager {
 
 
-    public ProjectManager(String name, int employeeId,String department, ProjectA projectA) {
-        super(name, employeeId, department, projectA);
+    public ProjectManager(String name, int employeeId, String department, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment) {
+        super(name, employeeId, department, projectDetails, organisationRole, companyDepartment);
     }
 
     @Override
@@ -16,10 +18,7 @@ public class ProjectManager extends Manager implements ManagerActions {
         System.out.println(getName() + " is managing the project scope.");
     }
 
-    @Override
-    public void manageTeam() {
-        System.out.println(getName() + " - Project Manager is managing the team.");
-    }
+    ManagerActions<String> manageTeamLambda = team -> System.out.println("Managing team: " + team);
 
     @Override
     protected int getTeamSize() {
@@ -32,19 +31,19 @@ public class ProjectManager extends Manager implements ManagerActions {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         ProjectManager that = (ProjectManager) o;
-        return Objects.equals(super.getProjectA(), that.getProjectA());
+        return Objects.equals(super.getProjectDetails(), that.getProjectDetails());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), super.getProjectA());
+        return Objects.hash(super.hashCode(), super.getProjectDetails());
     }
 
     @Override
     public String toString() {
         return getName()+
                 " - ProjectManager{" +
-                "projectA=" + super.getProjectA() +
+                "projectA=" + super.getProjectDetails() +
                 '}';
     }
 }

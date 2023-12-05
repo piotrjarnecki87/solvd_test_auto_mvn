@@ -1,5 +1,6 @@
 package com.solvd.course.hm.project.it.company;
 
+import com.solvd.course.hm.project.it.company.enums.OrganisationRole;
 import com.solvd.course.hm.project.it.company.exceptions.UnauthorizedAccessException;
 import com.solvd.course.hm.project.it.company.interfaces.CEOActions;
 import com.solvd.course.hm.project.it.company.interfaces.TeamMember;
@@ -8,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
-public final class CEO extends Person implements CEOActions, TeamMember {
+public final class CEO extends Person implements TeamMember {
     private static final int SHARE_PRICE = 100;
     private static int totalCEOs = 0;
 
@@ -19,8 +20,8 @@ public final class CEO extends Person implements CEOActions, TeamMember {
     private final int secretCode = 123;
     private int shares;
 
-    public CEO(String name, int shares) {
-        super(name);
+    public CEO(String name, int shares, OrganisationRole organisationRole) {
+        super(name, organisationRole);
         this.shares = shares;
     }
 
@@ -45,10 +46,9 @@ public final class CEO extends Person implements CEOActions, TeamMember {
         System.out.println(getName() + " is defining the company strategy.");
     }
 
-    @Override
-    public void defineCompanyStrategy() {
-        System.out.println("CEO is defining the company strategy.");
-    }
+    CEOActions<String> ceoStrategy = strategy -> {
+        System.out.println("CEO is defining the company strategy: " + strategy);
+    };
 
     @Override
     public String toString() {

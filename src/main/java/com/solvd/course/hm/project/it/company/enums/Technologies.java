@@ -1,4 +1,4 @@
-package com.solvd.course.hm.project.it.company;
+package com.solvd.course.hm.project.it.company.enums;
 
 public enum Technologies {
     JAVA("Java"),

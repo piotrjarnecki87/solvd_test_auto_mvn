@@ -1,16 +1,20 @@
 package com.solvd.course.hm.project.it.company;
 
+import com.solvd.course.hm.project.it.company.enums.CompanyDepartment;
+import com.solvd.course.hm.project.it.company.enums.OrganisationRole;
 import com.solvd.course.hm.project.it.company.interfaces.TeamMember;
 
 import java.util.Objects;
 abstract class Employee extends Person implements TeamMember {
     private int employeeId;
-    private ProjectA projectA;
+    private CompanyDepartment companyDepartment;
+    private ProjectDetails projectDetails;
 
-    public Employee(String name, int employeeId, ProjectA projectA) {
-        super(name);
+    public Employee(String name, int employeeId, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment ) {
+        super(name, organisationRole);
         this.employeeId = employeeId;
-        this.projectA = projectA;
+        this.projectDetails = projectDetails;
+        this.companyDepartment = companyDepartment;
     }
 
     public int getEmployeeId() {
@@ -28,19 +32,19 @@ abstract class Employee extends Person implements TeamMember {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return employeeId == employee.employeeId && Objects.equals(projectA, employee.projectA);
+        return employeeId == employee.employeeId && Objects.equals(projectDetails, employee.projectDetails);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, projectA);
+        return Objects.hash(employeeId, projectDetails);
     }
 
-    public ProjectA getProjectA() {
-        return projectA;
+    public ProjectDetails getProjectDetails() {
+        return projectDetails;
     }
 
-    public void setProjectA(ProjectA projectA) {
-        this.projectA = projectA;
+    public void setProjectA(ProjectDetails projectDetails) {
+        this.projectDetails = projectDetails;
     }
 }

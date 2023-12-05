@@ -1,13 +1,15 @@
 package com.solvd.course.hm.project.it.company;
 
+import com.solvd.course.hm.project.it.company.enums.CompanyDepartment;
+import com.solvd.course.hm.project.it.company.enums.OrganisationRole;
 import com.solvd.course.hm.project.it.company.exceptions.InvalidTeamManagementException;
 import com.solvd.course.hm.project.it.company.exceptions.log.ExceptionLogger;
 
 abstract class Manager extends Employee {
     private String department;
 
-    public Manager(String name, int employeeId, String department, ProjectA projectA) {
-            super(name, employeeId, projectA);
+    public Manager(String name, int employeeId, String department, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment ) {
+            super(name, employeeId, projectDetails, organisationRole, companyDepartment);
         this.department = department;
 
     }
