@@ -2,99 +2,104 @@ package com.solvd.course.hm.project.it.company;
 
 import com.solvd.course.hm.project.it.company.enums.*;
 import com.solvd.course.hm.project.it.company.exceptions.InvalidTechnologiesException;
+import com.solvd.course.hm.project.it.company.interfaces.Developer;
+import com.solvd.course.hm.project.it.company.lists.AllPeopleInOrganization;
+import com.solvd.course.hm.project.it.company.lists.AutomationSoftwareTesterList;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.*;
 import java.util.function.Consumer;
-
+import java.util.stream.Collectors;
+import java.util.List;
 
 public class Main {
     private static final TechnologyValidator technologyValidator = new TechnologyValidator();
     public static void main(String[] args) {
+        List<Person> allPeople = AllPeopleInOrganization.getAllPeopleInOrganization();
 
-        AutomotiveSoftwareTester tester = new AutomotiveSoftwareTester("Michael", 1, new ProjectDetails(ProjectTypes.MOBILE_APP, Technologies.JAVA, ProjectStatus.IN_PROGRESS), OrganisationRole.TESTER, CompanyDepartment.FINANCE);
-        SoftwareDeveloper developer = new SoftwareDeveloper("Ola", 2, new ProjectDetails(ProjectTypes.DESKTOP_APP, Technologies.JAVA, ProjectStatus.CANCELED), OrganisationRole.FREELANCER, CompanyDepartment.OPERATIONS);
-        ProjectManager projectManager = new ProjectManager("John", 3, "A", new ProjectDetails(ProjectTypes.DATA_SCIENCE_PROJECT, Technologies.JAVA, ProjectStatus.ON_HOLD), OrganisationRole.PROJECT_MANAGER,CompanyDepartment.MARKETING);
-        CEO ceo = new CEO("Frank", 100,OrganisationRole.CEO);
-
-        Map<String, Object> employeeMap = new HashMap<>();
-        CustomLinkedList<Person> peopleList = new CustomLinkedList<>();
-        Queue<Person> peopleQueue = new LinkedList<>();
+        allPeople.stream()
+                .filter(person -> person instanceof AutomationSoftwareTester)
+                .map(person -> (AutomationSoftwareTester) person)
+                .filter(tester -> technologyValidator.isValidTechnology(tester.getProjectDetails().getTechnologies()))
+                .forEach(tester -> {
+                    tester.workOnProject();
+                    System.out.println(tester);
+                    System.out.println();
+                });
 
         Consumer<Person> printPersonName = person -> System.out.println("Name: " + person.getName());
-        printPersonName.accept(developer);
 
-        Runnable runTestsAndWorkOnProject = () -> {
-            tester.testerLambda.runTests("unit tests");
-            tester.workOnProject();
-            System.out.println(tester);
-            System.out.println();
-        };
-        runTestsAndWorkOnProject.run();
+        allPeople.stream()
+                .filter(person -> person instanceof Developer)
+                .forEach(printPersonName);
 
+        long numberOfEmployees = allPeople.stream()
+                .filter(person -> person instanceof Employee)
+                .count();
 
-        employeeMap.put("Tester", tester);
-        employeeMap.put("Developer", developer);
-        employeeMap.put("ProjectManager", projectManager);
+        System.out.println("Number of employees in the list: " + numberOfEmployees);
 
-        peopleList.add(tester);
-        peopleList.add(developer);
-        peopleList.add(projectManager);
-        peopleList.add(ceo);
+        allPeople.stream()
+                .filter(person -> person instanceof Developer)
+                .map(person -> (Developer) person)
+                .forEach(developer -> {
+                    try {
+                        developer.writeCode();
+                    } catch (InvalidTechnologiesException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        developer.writeCode();
+                    } catch (InvalidTechnologiesException e) {
+                        throw new RuntimeException(e);
+                    }
+                    System.out.println(developer);
+                });
 
-        peopleQueue.addAll(Arrays.asList(tester, developer, projectManager, ceo));
+        allPeople.stream()
+                .filter(person -> person instanceof ProjectManager)
+                .map(person -> (ProjectManager)person)
+                .forEach(projectManager -> {
+                    projectManager.manageTeamLambda.manageTeam(CompanyDepartment.HR.getDepartmentType());
+                    projectManager.workOnProject();
+                    System.out.println(projectManager);
+                });
 
-        int numberOfEmployees = employeeMap.size();
-        System.out.println("Number of employees in the map: " + numberOfEmployees);
+        allPeople.stream()
+                .filter(person -> person instanceof CEO)
+                .map(person -> (CEO) person)
+                .forEach(ceo -> {
+                    ceo.ceoStrategy.defineCompanyStrategy("Aggressive Expansion");
+                    ceo.revealSecretCode();
+                    CEO.printSharePrice();
+                    System.out.println(ceo);
+                });
 
+        long numberOfPeople = allPeople
+                .stream()
+                .count();
 
-        if (technologyValidator.isValidTechnology(tester.getProjectDetails().getTechnologies())) {
-            tester.testerLambda.runTests("unit tests");
-            tester.workOnProject();
-            System.out.println(tester);
-            System.out.println();
-        } else {
-            System.out.println("Invalid technology for tester: " + tester.getProjectDetails().getTechnologies());
-        }
+        System.out.println("Number of people in the organization: " + numberOfPeople);
 
-        Person firstPerson = peopleQueue.peek();
-        System.out.println("First person in the queue: " + firstPerson.getName());
+        List<Person> pythonEmployees = allPeople.stream()
+                .filter(person -> person instanceof Employee)
+                .map(person -> (Employee) person)
+                .filter(employee -> employee.getProjectDetails().getTechnologies() == Technologies.PYTHON)
+                .collect(Collectors.toList());
 
-        Person removedPerson = peopleQueue.poll();
-        System.out.println("Removed person from the queue: " + removedPerson.getName());
+        System.out.println("Employees working with Technologies.PYTHON:");
+        pythonEmployees.forEach(person -> System.out.println(person.getName()));
+        System.out.println("Number of employees working with Technologies.PYTHON: " + pythonEmployees.size());
 
-        for (Person person : peopleList) {
-
-            System.out.println("Name: " + person.getName());
-        }
-
-        try {
-            developer.writeCode();
-        } catch (InvalidTechnologiesException e) {
-            throw new RuntimeException(e);
-        }
-        developer.workOnProject();
-        System.out.println(developer);
-        System.out.println();
-
-        System.out.println();
-
-
-        projectManager.manageTeamLambda.manageTeam(CompanyDepartment.HR.getDepartmentType());
-        projectManager.workOnProject();
-        System.out.println(projectManager);
-        System.out.println();
-
-
-        ceo.workOnProject();
-        ceo.ceoStrategy.defineCompanyStrategy("Aggressive Expansion");
-        ceo.revealSecretCode();
-        CEO.printSharePrice();
-        System.out.println(ceo);
-
-        ProjectDetails projectDetailsTester = tester.getProjectDetails();
-        String testerStatusText = projectDetailsTester.getStatusText();
-        System.out.println(testerStatusText);
-
+        allPeople.stream()
+                .filter(person -> person instanceof Employee)
+                .map(person -> (Employee) person)
+                .sorted(Comparator.comparingInt(Employee::getEmployeeId))
+                .forEach(employee -> System.out.println(employee));
 
     }
 }
+
+

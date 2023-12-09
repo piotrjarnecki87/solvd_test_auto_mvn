@@ -9,8 +9,8 @@ import java.util.Objects;
 public class ProjectManager extends Manager {
 
 
-    public ProjectManager(String name, int employeeId, String department, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment) {
-        super(name, employeeId, department, projectDetails, organisationRole, companyDepartment);
+    public ProjectManager(String name, int employeeId, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment) {
+        super(name, employeeId, projectDetails, organisationRole, companyDepartment);
     }
 
     @Override

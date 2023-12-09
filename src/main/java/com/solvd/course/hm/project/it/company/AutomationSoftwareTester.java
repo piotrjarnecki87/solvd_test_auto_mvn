@@ -8,12 +8,12 @@ import com.solvd.course.hm.project.it.company.interfaces.Tester;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-public class AutomotiveSoftwareTester extends Employee {
+public class AutomationSoftwareTester extends Employee {
 
     private Supplier<Boolean> testExecutionSupplier = () -> testExecutionFails();
 
 
-    public AutomotiveSoftwareTester(String name, int employeeId, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment) {
+    public AutomationSoftwareTester(String name, int employeeId, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment) {
         super(name, employeeId, projectDetails, organisationRole, companyDepartment);
     }
 
@@ -42,7 +42,6 @@ public class AutomotiveSoftwareTester extends Employee {
     }
 
     private boolean testExecutionFails() {
-        // Tutaj umieść logikę testu
         return true;
     }
 
@@ -51,7 +50,7 @@ public class AutomotiveSoftwareTester extends Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        AutomotiveSoftwareTester that = (AutomotiveSoftwareTester) o;
+        AutomationSoftwareTester that = (AutomationSoftwareTester) o;
         return Objects.equals(super.getProjectDetails(), that.getProjectDetails());
     }
 
@@ -62,7 +61,7 @@ public class AutomotiveSoftwareTester extends Employee {
 
     @Override
     public String toString() {
-        return "AutomotiveSoftwareTester{" +
+        return "AutomationSoftwareTester{" +
                 "name='" + getName() + '\'' +
                 ", employeeId=" + getEmployeeId() +
                 ", projectA='" + super.getProjectDetails() + '\'' +

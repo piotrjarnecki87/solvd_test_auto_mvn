@@ -6,11 +6,11 @@ import com.solvd.course.hm.project.it.company.exceptions.InvalidTeamManagementEx
 import com.solvd.course.hm.project.it.company.exceptions.log.ExceptionLogger;
 
 abstract class Manager extends Employee {
-    private String department;
 
-    public Manager(String name, int employeeId, String department, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment ) {
+
+    public Manager(String name, int employeeId, ProjectDetails projectDetails, OrganisationRole organisationRole, CompanyDepartment companyDepartment ) {
             super(name, employeeId, projectDetails, organisationRole, companyDepartment);
-        this.department = department;
+
 
     }
 
