@@ -5,15 +5,21 @@ import java.util.concurrent.CountDownLatch;
 
 public class ConnectionConsumer implements Runnable {
     private final CountDownLatch connectionsAvailable;
+
     public ConnectionConsumer(CountDownLatch connectionsAvailable) {
         this.connectionsAvailable = connectionsAvailable;
     }
+
     @Override
     public void run() {
-        CompletableFuture<ConnectionPool.DatabaseConnection> connection = ConnectionPool.getConnectionAsync();
+        try {
+            CompletableFuture<ConnectionPool.DatabaseConnection> connectionFuture = ConnectionPool.getConnectionAsync();
+            ConnectionPool.DatabaseConnection connection = connectionFuture.join();
 
-        ConnectionPool.releaseConnection(connection);
-
-        connectionsAvailable.countDown();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            connectionsAvailable.countDown();
+        }
     }
 }

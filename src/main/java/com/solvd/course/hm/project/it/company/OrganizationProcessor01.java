@@ -30,8 +30,6 @@ public class OrganizationProcessor01 extends Thread{
         processor03Future.join();
     }
 
-
-
     public void processAutomationSoftwareTesters() {
         allPeople.stream()
                 .filter(person -> person instanceof AutomationSoftwareTester)

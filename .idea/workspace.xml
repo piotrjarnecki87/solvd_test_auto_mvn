@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0220dce4-2c0e-4252-bb8a-febbc0b3bf81" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ConnectionConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/OrganizationProcessor01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/OrganizationProcessor02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/OrganizationProcessor03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/CEODao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/EmployeeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/GenericDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/PersonDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/ProjectManagerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/daoImpl/AbstractJdbcDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/daoImpl/CEODaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/daoImpl/EmployeeDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/daoImpl/PersonDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/jdbc/daoImpl/ProjectManagerDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ConnectionConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ConnectionConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/ConnectionPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/OrganizationProcessor01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/OrganizationProcessor01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/OrganizationProcessor02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/OrganizationProcessor02.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/course/hm/project/it/company/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +35,27 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;piotrjarnecki87&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1daa0d5b-1221-49b5-86c7-5f45569fa889" />
+        <option name="url" value="https://github.com/delysid87/solvd_test_auto_mvn.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -41,23 +68,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\solvd_test_auto_mvn\src\main\java\com\solvd\course\hm\project\it\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.project.it.company.Main" />
       <module name="solvd_test_auto_mvn" />
@@ -71,12 +98,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReflectionRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.project.it.company.reflection.ReflectionRunner" />
+    <configuration name="com.solvd.course.hm.project.it.jdbc.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.project.it.jdbc.Main" />
       <module name="solvd_test_auto_mvn" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.solvd.course.hm.project.it.company.wielowo.*" />
+          <option name="PATTERN" value="com.solvd.course.hm.project.it.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,12 +111,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UniqueWordsCounter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.project.it.utils.UniqueWordsCounter" />
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.project.it.jdbc.main" />
       <module name="solvd_test_auto_mvn" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.solvd.course.hm.project.it.utils.*" />
+          <option name="PATTERN" value="com.solvd.course.hm.project.it.jdbc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.solvd.course.hm.probny.test" />
+      <module name="solvd_test_auto_mvn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solvd.course.hm.probny.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,10 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.com.solvd.course.hm.project.it.jdbc.Main" />
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.wielo01" />
-        <item itemvalue="Application.ReflectionRunner" />
-        <item itemvalue="Application.UniqueWordsCounter" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702149223921</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update">
+      <option name="closed" value="true" />
+      <created>1702370276726</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702370276726</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

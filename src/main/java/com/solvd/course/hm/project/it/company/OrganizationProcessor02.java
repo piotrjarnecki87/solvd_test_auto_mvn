@@ -23,7 +23,6 @@ public class OrganizationProcessor02 implements Runnable {
         printPythonEmployees();
         printSortedEmployees();
         executeCEOTasks();
-
     }
 
     public void writeCodeForDevelopers() {
@@ -40,6 +39,7 @@ public class OrganizationProcessor02 implements Runnable {
                     }
                 });
     }
+
     public void manageProjectsForManagers() {
         allPeople.stream()
                 .filter(person -> person instanceof ProjectManager)

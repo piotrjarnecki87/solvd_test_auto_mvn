@@ -4,8 +4,11 @@ import com.solvd.course.hm.project.it.company.enums.CompanyDepartment;
 import com.solvd.course.hm.project.it.company.enums.OrganisationRole;
 import com.solvd.course.hm.project.it.company.interfaces.TeamMember;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
-abstract class Employee extends Person implements TeamMember {
+public class Employee extends Person implements TeamMember {
     private int employeeId;
     private CompanyDepartment companyDepartment;
     private ProjectDetails projectDetails;
@@ -47,4 +50,7 @@ abstract class Employee extends Person implements TeamMember {
     public void setProjectA(ProjectDetails projectDetails) {
         this.projectDetails = projectDetails;
     }
+
+
+
 }

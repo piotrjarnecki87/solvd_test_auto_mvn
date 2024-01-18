@@ -29,6 +29,7 @@ public class Main {
 
             organizationProcessor01.join();
             organizationProcessor02.join();
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
