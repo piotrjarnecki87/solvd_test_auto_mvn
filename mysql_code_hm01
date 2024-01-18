@@ -1,0 +1,321 @@
+User
+CREATE DATABASE IF NOT EXISTS it_company;
+USE it_company;
+
+CREATE TABLE IF NOT EXISTS employees_payroll (
+    idEmployeePayroll BIGINT PRIMARY KEY AUTO_INCREMENT,
+    salary DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+    idEmployee BIGINT PRIMARY KEY AUTO_INCREMENT,
+    employee_role VARCHAR(45) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS project_teams (
+    idproject_team BIGINT PRIMARY KEY AUTO_INCREMENT,
+    team_name VARCHAR(250) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS departments (
+    idDepartment BIGINT PRIMARY KEY AUTO_INCREMENT,
+    department_name VARCHAR(100),
+    id_employee BIGINT,
+    project_team_id BIGINT,
+    FOREIGN KEY (id_employee) REFERENCES employees(idEmployee),
+    FOREIGN KEY (project_team_id) REFERENCES project_teams(idproject_team)
+);
+CREATE TABLE IF NOT EXISTS projects (
+    idProject BIGINT PRIMARY KEY AUTO_INCREMENT,
+    project_name VARCHAR(100) NOT NULL,
+    project_description VARCHAR(200),
+    start_date DATE,
+    due_date DATE,
+    budget DECIMAL(10, 2),
+    projectscol VARCHAR(45)
+    );
+    CREATE TABLE IF NOT EXISTS projects_has_employees (
+    idProject bigint NOT NULL,
+    idEmployee bigint NOT NULL,
+    FOREIGN KEY (idProject) REFERENCES projects(idProject),
+    FOREIGN KEY (idEmployee) REFERENCES employees(idEmployee),
+    PRIMARY KEY (idProject, idEmployee)
+);
+CREATE TABLE IF NOT EXISTS clients (
+    idclient BIGINT PRIMARY KEY AUTO_INCREMENT,
+    project_name_id BIGINT,
+    customerName VARCHAR(45) NOT NULL,
+    FOREIGN KEY (project_name_id) REFERENCES projects(idProject)
+);
+CREATE TABLE IF NOT EXISTS project_managers (
+    idproject_manager BIGINT PRIMARY KEY AUTO_INCREMENT,
+    projects_idProject BIGINT,
+    employee_id BIGINT,
+    FOREIGN KEY (projects_idProject) REFERENCES projects(idProject),
+    FOREIGN KEY (employee_id) REFERENCES employees(idEmployee)
+);
+CREATE TABLE IF NOT EXISTS employees_has_project_teams (
+    idEmployee BIGINT,
+    idproject_team BIGINT,
+    FOREIGN KEY (idEmployee) REFERENCES employees(idEmployee),
+    FOREIGN KEY (idproject_team) REFERENCES project_teams(idproject_team)
+);
+CREATE TABLE IF NOT EXISTS ceos (
+    id_ceos BIGINT PRIMARY KEY AUTO_INCREMENT,
+    nr_of_shares INT
+);
+CREATE TABLE IF NOT EXISTS people (
+    idPeople BIGINT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(45) NOT NULL,
+    last_name VARCHAR(45) NOT NULL,
+    phone VARCHAR(20) UNIQUE NOT NULL,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    idEmployee BIGINT,
+    id_ceo BIGINT,
+    FOREIGN KEY (idEmployee) REFERENCES employees(idEmployee),
+    FOREIGN KEY (id_ceo) REFERENCES ceos(id_ceos)
+);
+CREATE TABLE IF NOT EXISTS transactions (
+    id_transactions BIGINT PRIMARY KEY AUTO_INCREMENT,
+    net_price INT,
+    idclient BIGINT,
+    idProject BIGINT,
+    FOREIGN KEY (idclient) REFERENCES clients(idclient),
+    FOREIGN KEY (idProject) REFERENCES projects(idProject)
+);
+
+CREATE TABLE IF NOT EXISTS outsourcing (
+    id_outsourcing BIGINT PRIMARY KEY AUTO_INCREMENT,
+    net_price INT,
+    name_company VARCHAR(100) UNIQUE NOT NULL,
+    idProject BIGINT,
+    FOREIGN KEY (idProject) REFERENCES projects(idProject)
+);
+ALTER TABLE projects 
+ADD COLUMN outsourcing_id BIGINT,
+ADD COLUMN clients_idclient BIGINT,
+ADD COLUMN project_team_id BIGINT,
+ADD FOREIGN KEY (outsourcing_id) REFERENCES outsourcing(id_outsourcing),
+ADD FOREIGN KEY (clients_idclient) REFERENCES clients(idclient),
+ADD FOREIGN KEY (project_team_id) REFERENCES project_teams(idproject_team);
+
+INSERT INTO employees_payroll (idEmployeePayroll, salary) VALUES (1, 5000.00);
+INSERT INTO employees_payroll (idEmployeePayroll, salary) VALUES (2, 15000.00);
+INSERT INTO employees (employee_role) VALUES ('Software Engineer');
+INSERT INTO departments (department_name, id_employee, project_team_id) VALUES ('IT Department', 1, 1);
+INSERT INTO projects (project_name, project_description, start_date, due_date, budget) VALUES ('Project A', 'Project A Description', '2023-01-01', '2023-12-31', 10000.00);
+INSERT INTO project_teams (team_name) VALUES ('Development Team');
+INSERT INTO clients (customerName) VALUES ( 'Client X');
+INSERT INTO project_managers (projects_idProject, employee_id) VALUES (1, 1);
+INSERT INTO people (first_name, last_name, phone, email, idEmployee, id_ceo) VALUES ('John', 'Doe', '1234567890', 'john.doe@example.com', 1, 1);
+INSERT INTO ceos (nr_of_shares) VALUES (1000);
+
+UPDATE employees_payroll SET salary = 6000.00 WHERE idEmployeePayroll = 1;
+UPDATE employees_payroll SET salary = 26000.00 WHERE idEmployeePayroll = 2;
+UPDATE employees SET employee_role = 'Senior Software Engineer' WHERE idEmployee = 1;
+UPDATE project_teams SET team_name = 'Advanced Development Team' WHERE idproject_team = 1;
+UPDATE departments SET department_name = 'Software Development Department' WHERE idDepartment = 1;
+UPDATE projects SET project_description = 'Enhanced Project A Description' WHERE idProject = 1;
+UPDATE projects SET budget = 12000.00 WHERE idProject = 1;
+UPDATE departments SET project_team_id = 2 WHERE idDepartment = 1;
+UPDATE clients SET customerName = 'Client Y' WHERE idclient = 1;
+UPDATE ceos SET nr_of_shares = 1500 WHERE id_ceos = 1;
+
+DELETE FROM project_managers WHERE projects_idProject = 1;
+DELETE FROM projects WHERE idProject = 1; 
+DELETE FROM departments WHERE id_employee = 1;
+DELETE FROM people WHERE idEmployee = 1;
+DELETE FROM employees WHERE idEmployee = 1;
+DELETE FROM project_teams WHERE idproject_team = 1;
+DELETE FROM departments WHERE idDepartment = 1;
+DELETE FROM clients WHERE idclient = 1;
+DELETE FROM project_managers WHERE idproject_manager = 1;
+DELETE FROM ceos WHERE id_ceos = 1;
+
+ALTER TABLE people ADD COLUMN address2 VARCHAR(200);
+ALTER TABLE clients MODIFY COLUMN customerName VARCHAR(100);
+ALTER TABLE projects CHANGE COLUMN projectscol project_column VARCHAR(45);
+ALTER TABLE projects MODIFY COLUMN start_date DATE NOT NULL;
+ALTER TABLE departments DROP FOREIGN KEY idDepartment;
+
+USE it_company;
+SELECT 
+employees.idEmployee, 
+employees.employee_role, 
+people.first_name, 
+people.last_name,
+employees_payroll.salary,
+project_teams.team_name,
+departments.department_name,
+projects.project_name,
+projects.project_description,
+projects.start_date,
+projects.due_date,
+projects.budget,
+clients.customerName,
+project_managers.idproject_manager,
+project_managers.projects_idProject,
+project_managers.employee_id,
+ceos.nr_of_shares,
+people.phone,
+people.email,
+transactions.net_price AS transaction_net_price,
+outsourcing.net_price AS outsourcing_net_price,
+outsourcing.name_company AS outsourcing_company_name
+FROM employees
+JOIN people ON employees.idEmployee = people.idEmployee
+JOIN employees_payroll ON employees.idEmployee = employees_payroll.idEmployeePayroll
+LEFT JOIN departments ON employees.idEmployee = departments.id_employee
+LEFT JOIN project_teams ON departments.project_team_id = project_teams.idproject_team
+LEFT JOIN projects ON departments.project_team_id = projects.project_team_id
+LEFT JOIN projects_has_employees ON employees.idEmployee = projects_has_employees.idEmployee
+LEFT JOIN clients ON projects.idProject = clients.project_name_id
+LEFT JOIN project_managers ON projects.idProject = project_managers.projects_idProject
+LEFT JOIN ceos ON people.id_ceo = ceos.id_ceos
+LEFT JOIN transactions ON clients.idclient = transactions.idclient
+LEFT JOIN outsourcing ON projects.idProject = outsourcing.idProject
+ORDER BY employees.idEmployee
+LIMIT 0, 1000;
+
+SELECT 
+    employees.idEmployee,
+    employees.employee_role,
+    projects.project_name
+FROM employees
+INNER JOIN projects ON employees.idEmployee = projects.idProject;
+
+SELECT 
+    employees.idEmployee,
+    employees.employee_role,
+    projects.project_name
+FROM employees
+LEFT JOIN projects ON employees.idEmployee = projects.idProject;
+
+SELECT 
+    employees.idEmployee,
+    employees.employee_role,
+    projects.project_name
+FROM employees
+RIGHT JOIN projects ON employees.idEmployee = projects.idProject;
+
+SELECT 
+    employees.idEmployee,
+    employees.employee_role,
+    projects.project_name
+FROM employees
+FULL OUTER JOIN projects ON employees.idEmployee = projects.idProject;
+
+SELECT 
+    employees.idEmployee,
+    employees.employee_role,
+    projects.project_name
+FROM employees
+CROSS JOIN projects;
+
+SELECT 
+    employee_role,
+    AVG(salary) AS average_salary
+FROM employees
+JOIN employees_payroll ON employees.idEmployee = employees_payroll.idEmployeePayroll
+GROUP BY employee_role;
+
+SELECT 
+    project_teams.team_name,
+    SUM(projects.budget) AS total_budget
+FROM project_teams
+LEFT JOIN departments ON project_teams.idproject_team = departments.project_team_id
+LEFT JOIN projects ON departments.project_team_id = projects.project_team_id
+GROUP BY project_teams.team_name;
+
+SELECT 
+    project_teams.team_name,
+    SUM(projects.budget) AS total_budget
+FROM project_teams
+LEFT JOIN departments ON project_teams.idproject_team = departments.project_team_id
+LEFT JOIN projects ON departments.project_team_id = projects.project_team_id
+GROUP BY project_teams.team_name
+HAVING total_budget > 50000;
+
+SELECT 
+    project_teams.team_name,
+    SUM(projects.budget) AS total_budget,
+    AVG(employees_payroll.salary) AS average_salary
+FROM project_teams
+LEFT JOIN departments ON project_teams.idproject_team = departments.project_team_id
+LEFT JOIN projects ON departments.project_team_id = projects.project_team_id
+LEFT JOIN projects_has_employees ON projects.idProject = projects_has_employees.idProject
+LEFT JOIN employees_payroll ON projects_has_employees.idEmployee = employees_payroll.idEmployeePayroll
+GROUP BY project_teams.team_name;
+
+SELECT 
+    COUNT(idEmployee) AS total_employees
+FROM employees;
+
+SELECT 
+    project_teams.team_name,
+    SUM(projects.budget) AS total_budget
+FROM project_teams
+LEFT JOIN departments ON project_teams.idproject_team = departments.project_team_id
+LEFT JOIN projects ON departments.project_team_id = projects.project_team_id
+WHERE projects.start_date > '2023-01-01'
+GROUP BY project_teams.team_name;
+
+SELECT 
+    project_teams.team_name,
+    SUM(projects.budget) AS total_budget
+FROM project_teams
+LEFT JOIN departments ON project_teams.idproject_team = departments.project_team_id
+LEFT JOIN projects ON departments.project_team_id = projects.project_team_id
+GROUP BY project_teams.team_name
+ORDER BY total_budget DESC;
+
+SELECT 
+    employee_role,
+    SUM(salary) AS total_salary
+FROM employees
+JOIN employees_payroll ON employees.idEmployee = employees_payroll.idEmployeePayroll
+GROUP BY employee_role;
+
+SELECT 
+    employee_role,
+    AVG(salary) AS average_salary
+FROM employees
+JOIN employees_payroll ON employees.idEmployee = employees_payroll.idEmployeePayroll
+GROUP BY employee_role
+HAVING average_salary > 8000;
+
+SELECT 
+    project_name,
+    SUM(budget) AS total_budget,
+    AVG(UNIX_TIMESTAMP(start_date)) AS average_start_date
+FROM projects
+GROUP BY project_name;
+
+SELECT 
+    project_teams.team_name,
+    COUNT(projects.idProject) AS project_count
+FROM project_teams
+LEFT JOIN departments ON project_teams.idproject_team = departments.project_team_id
+LEFT JOIN projects ON departments.project_team_id = projects.project_team_id
+GROUP BY project_teams.team_name
+HAVING project_count > 5;
+
+SELECT 
+    project_name,
+    SUM(budget) AS total_budget
+FROM projects
+GROUP BY project_name
+ORDER BY total_budget DESC;
+
+SELECT 
+    project_name,
+    SUM(budget) AS total_budget
+FROM projects
+WHERE due_date > '2023-01-01'
+GROUP BY project_name;
+
+SELECT 
+    clients.customerName,
+    SUM(projects.budget) AS total_budget
+FROM clients
+LEFT JOIN projects ON clients.project_name_id = projects.idProject
+GROUP BY clients.customerName
+ORDER BY total_budget ASC;
